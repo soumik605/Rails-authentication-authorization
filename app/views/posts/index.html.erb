@@ -8,8 +8,11 @@
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show", post %>
-      <%= link_to "Edit", [:edit, post] %>
+        <%= link_to "Show", post %>
+      <% if can? :update, post %>
+        <%= link_to "Edit", [:edit, post] %>
+      <% end %>
+      
     </p>
   <hr />
   <% end %>
